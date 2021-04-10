@@ -1,7 +1,7 @@
 # Seneye-HASS
 
-To collect Seneye USB device ('SUD') readings and broadcast them via MQTT.
-C++ prototype under development.
+To collect [Seneye USB device](https://www.seneye.com/store/seneye-reef.html)
+('SUD') readings and broadcast them via MQTT.  C++ prototype under development.
 
 The aim is to have an implementation which integrates nicely with [Home
 Assistant](https://www.home-assistant.io/).
@@ -34,12 +34,12 @@ The resources folder contains:
 - An example of a Home Assistant dashboard using these entities.
 
 ## WIP/TODO
-- Implement [Homeassistant MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/).
+- Implement [Home Assistant MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/).
 - Deal with several Seneye devices.
 - Make the logging flexible.
 
 ## Related projects
 
 * https://github.com/seneye/SUDDriver
-* https://github.com/mcclown/pyseneye/
+* https://github.com/mcclown/pyseneye
 * https://github.com/dhallgb/Seneye-MQTT
