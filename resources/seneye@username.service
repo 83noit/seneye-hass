@@ -1,0 +1,13 @@
+[Unit]
+Description=Seneye USB device
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/local/bin/seneye
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

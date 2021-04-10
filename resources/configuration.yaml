@@ -1,0 +1,86 @@
+# Example of configuration for Home Assistant.
+
+mqtt:
+  broker: 192.168.0.10
+
+binary_sensor:
+  - platform: mqtt
+    name: "In water"
+    state_topic: "aquarium/seneye/sensor"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    value_template: "{{ value_json.is_in_water }}"
+    device_class: "moisture"
+    payload_off: "0"
+    payload_on: "1"
+  - platform: mqtt
+    name: "Slide fitted"
+    state_topic: "aquarium/seneye/sensor"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    value_template: "{{ value_json.has_slide }}"
+    payload_off: "0"
+    payload_on: "1"
+    device_class: "moving"
+  - platform: mqtt
+    name: "Slide expired"
+    state_topic: "aquarium/seneye/sensor"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    value_template: "{{ value_json.has_expired_slide }}"
+    payload_off: "0"
+    payload_on: "1"
+    device_class: "safety"
+  - platform: mqtt
+    name: "Kelvin light"
+    state_topic: "aquarium/seneye/light"
+    json_attributes_topic: "aquarium/seneye/light"
+    value_template: "{{ value_json.is_kelvin }}"
+    payload_off: "0"
+    payload_on: "1"
+    device_class: "light"
+sensor:
+  - platform: mqtt
+    name: "Aquarium Temperature"
+    state_topic: "aquarium/seneye/sensor"
+    unit_of_measurement: "°C"
+    value_template: "{{ (value_json.temperature | float) / 1000.0 }}"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    device_class: "temperature"
+  - platform: mqtt
+    name: "Aquarium pH"
+    state_topic: "aquarium/seneye/sensor"
+    value_template: "{{ (value_json.ph | float) / 100.0 }}"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    icon: "mdi:alpha-h-box"
+  - platform: mqtt
+    name: "Aquarium NH3"
+    state_topic: "aquarium/seneye/sensor"
+    value_template: "{{ (value_json.nh3 | float) / 100.0 }}"
+    json_attributes_topic: "aquarium/seneye/sensor"
+    icon: "mdi:bottle-tonic-skull"
+  - platform: mqtt
+    name: "Aquarium Lux"
+    state_topic: "aquarium/seneye/light"
+    value_template: "{{ value_json.lux }}"
+    json_attributes_topic: "aquarium/seneye/light"
+    device_class: "illuminance"
+    unit_of_measurement: "lx"
+    icon: "mdi:white-balance-sunny"
+  - platform: mqtt
+    name: "Aquarium PAR"
+    state_topic: "aquarium/seneye/light"
+    value_template: "{{ value_json.par}}"
+    json_attributes_topic: "aquarium/seneye/light"
+    icon: "mdi:white-balance-sunny"
+  - platform: mqtt
+    name: "Aquarium PUR"
+    state_topic: "aquarium/seneye/light"
+    value_template: "{{ value_json.pur}}"
+    json_attributes_topic: "aquarium/seneye/light"
+    unit_of_measurement: "%"
+    icon: "mdi:white-balance-sunny"
+  - platform: mqtt
+    name: "Aquarium Light Temperature"
+    state_topic: "aquarium/seneye/light"
+    unit_of_measurement: "K"
+    value_template: "{{ (value_json.kelvin | float) / 1000.0 }}"
+    json_attributes_topic: "aquarium/seneye/light"
+    device_class: "temperature"

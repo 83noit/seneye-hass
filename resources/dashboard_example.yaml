@@ -1,0 +1,100 @@
+views:
+  - path: aquarium
+    title: Aquarium
+    icon: 'mdi:fishbowl'
+    badges: []
+    cards:
+      - type: gauge
+        entity: sensor.aquarium_temperature
+        min: 0
+        max: 40
+        severity:
+          green: 22
+          yellow: 20
+          red: 26
+        name: Temperature
+      - type: gauge
+        entity: sensor.aquarium_nh3
+        min: 0
+        max: 1
+        severity:
+          green: 0
+          yellow: 0.1
+          red: 0.5
+        name: Ammonia
+      - type: gauge
+        entity: sensor.aquarium_ph
+        severity:
+          green: 6
+          yellow: 6
+          red: 8
+        name: pH
+        max: 12
+        min: 4
+      - type: sensor
+        entity: sensor.aquarium_temperature
+        graph: line
+        name: Temperature
+      - type: sensor
+        entity: sensor.aquarium_ph
+        graph: line
+        name: pH
+      - type: sensor
+        entity: sensor.aquarium_nh3
+        graph: line
+        detail: 1
+        name: Ammonia
+        icon: 'mdi:bottle-tonic-skull'
+      - type: glance
+        entities:
+          - entity: binary_sensor.in_water
+          - entity: binary_sensor.slide_fitted
+          - entity: binary_sensor.slide_expired
+        show_state: false
+        state_color: false
+      - type: glance
+        entities:
+          - entity: sensor.aquarium_temperature
+          - entity: sensor.aquarium_ph
+          - entity: sensor.aquarium_nh3
+        show_name: true
+        show_state: true
+        show_icon: true
+      - type: gauge
+        entity: sensor.aquarium_lux
+        min: 0
+        max: 2000
+        name: Lux
+      - type: gauge
+        entity: sensor.aquarium_par
+        min: 0
+        max: 100
+        name: PAR
+      - type: gauge
+        entity: sensor.aquarium_pur
+        min: 0
+        max: 100
+        name: PUR
+      - type: gauge
+        entity: sensor.aquarium_light_temperature
+        min: 0
+        max: 7000
+        name: Light temperature
+      - type: history-graph
+        entities:
+          - entity: binary_sensor.kelvin_light
+        hours_to_show: 24
+        refresh_interval: 0
+        title: Kelvin light
+      - cards:
+          - entity: light.co2
+            type: entity
+          - type: entity
+            entity: light.smallco2
+          - type: history-graph
+            entities:
+              - entity: light.smallco2
+              - entity: light.co2
+            hours_to_show: 24
+            refresh_interval: 0
+        type: vertical-stack

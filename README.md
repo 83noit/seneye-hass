@@ -25,8 +25,15 @@ which used by Seneye-HASS.
 
 ```sudo apt-get install libmosquittopp1 libmosquittopp-dev```
 
+## Resources
+
+The resources folder contains:
+- An example of a systemd service.
+- An example of a Home Assistant configuration, declaring entities for the
+    readings sent over MQTT.
+- An example of a Home Assistant dashboard using these entities.
+
 ## WIP/TODO
-- Add examples of [Home Assistant](https://www.home-assistant.io/) configuration and dashboards.
 - Implement [Homeassistant MQTT discovery](https://www.home-assistant.io/docs/mqtt/discovery/).
 - Deal with several Seneye devices.
 - Make the logging flexible.
