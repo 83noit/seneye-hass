@@ -1,0 +1,9 @@
+# Ignore the build and Catch2 library.
+build
+test/catch_amalgamated.?pp
+
+# Ignore any executables.
+bin/*
+
+# Ignore Mac specific files.
+.DS_Store
