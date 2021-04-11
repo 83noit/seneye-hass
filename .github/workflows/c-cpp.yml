@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: apt-get
+      run: sudo apt-get -y install zsh libhidapi-libusb0 libhidapi-dev libmosquittopp1 libmosquittopp-dev
+    - name: test
+      run: make test
