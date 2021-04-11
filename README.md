@@ -1,5 +1,7 @@
 # Seneye-HASS
 
+[![Build status](https://github.com/83noit/Seneye-HASS/actions/workflows/c-cpp.yml/badge.svg?branch=main)](https://github.com/83noit/seneye-hass/actions)
+
 To collect [Seneye USB device](https://www.seneye.com/store/seneye-reef.html)
 ('SUD') readings and broadcast them via MQTT.  C++ prototype under development.
 
@@ -21,7 +23,7 @@ HIDAPI has several back-ends. Seneye-HASS has been tested with libusb.
 
 The Mosquitto project is primarily a message broker that implements the MQTT
 protocol. It also provides a C/C++ libraries for implementing MQTT clients,
-which used by Seneye-HASS.
+which is used by Seneye-HASS.
 
 ```sudo apt-get install libmosquittopp1 libmosquittopp-dev```
 
