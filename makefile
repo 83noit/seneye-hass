@@ -27,7 +27,7 @@ debug: FLAGS += -g
 debug: $(BUILD_DIR) $(BINARY_DIR) $(BINARY_DIR)/$(BINARY)
 
 $(BINARY_DIR)/$(BINARY): $(OBJECTS)
-	$(CXX) $(FLAGS) $(LDLIBS) -o $@ $^
+	$(CXX) $(FLAGS) -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/%.o : $(SOURCE_DIR)/%.cpp
 	$(CXX) $(FLAGS) $(HEADERS) -o $@ -c $<
@@ -36,7 +36,7 @@ test: $(TEST_BUILD_DIR) $(BINARY_DIR) $(BINARY_DIR)/$(TEST_BINARY)
 	./$(BINARY_DIR)/$(TEST_BINARY)
 
 $(BINARY_DIR)/$(TEST_BINARY): $(TEST_BUILD_DIR)/catch_amalgamated.o $(TEST_OBJECTS) $(BUILD_DIR)/seneye.o $(BUILD_DIR)/sud.o
-	$(CXX) $(FLAGS) $(LDLIBS) -o $@ $^
+	$(CXX) $(FLAGS) -o $@ $^ $(LDLIBS)
 
 $(TEST_BUILD_DIR)/catch_amalgamated.o: $(TEST_DIR)/catch_amalgamated.cpp
 	$(CXX) -Wno-psabi $(HEADERS) -o $@ -c $<
