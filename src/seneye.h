@@ -22,8 +22,8 @@ class InitializationException : public std::runtime_error {
 
 class SeneyeInterface {
  public:
-  virtual bool Write(const char*) = 0;
-  virtual bool Read(char*) = 0;
+  virtual bool Write(const unsigned char*) = 0;
+  virtual bool Read(unsigned char*) = 0;
   virtual ~SeneyeInterface();
 
  protected:
@@ -38,7 +38,7 @@ class Seneye {
   std::string device_type();
   std::string device_version();
   std::string serial_number();
-  const char* buffer();
+  const unsigned char* buffer();
   enum ReadingType { ERROR = 0, LIGHT, SENSOR };
   ReadingType Read();
 
@@ -67,7 +67,7 @@ class Seneye {
   bool LightReading();
   void LightReadingPart(bool is_sensor_reading);
 
-  char buffer_[65];
+  unsigned char buffer_[65];
   SeneyeInterface* device_;
   std::string device_type_;
   std::string device_version_;

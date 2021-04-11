@@ -23,10 +23,10 @@ SeneyeDevice::~SeneyeDevice() {
   free(devs_);
 }
 
-bool SeneyeDevice::Write(const char* buffer) {
-  return hid_write(handle_, (const unsigned char*)buffer, 65) >= 0;
+bool SeneyeDevice::Write(const unsigned char* buffer) {
+  return hid_write(handle_, buffer, 65) >= 0;
 }
 
-bool SeneyeDevice::Read(char* buffer) {
-  return hid_read(handle_, (unsigned char*)buffer, 64) == 64;
+bool SeneyeDevice::Read(unsigned char* buffer) {
+  return hid_read(handle_, buffer, 64) == 64;
 }

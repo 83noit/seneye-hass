@@ -22,8 +22,8 @@ class SeneyeDevice : public SeneyeInterface {
 
   SeneyeDevice();
   ~SeneyeDevice();
-  bool Write(const char *);
-  bool Read(char *);
+  bool Write(const unsigned char *);
+  bool Read(unsigned char *);
 
  private:
   SeneyeDevice(const SeneyeDevice &) = delete;

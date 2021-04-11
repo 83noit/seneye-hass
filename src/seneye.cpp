@@ -73,17 +73,17 @@ unsigned int Seneye::nh3() { return nh3_; }
 
 int Seneye::temperature() { return temperature_; }
 
-const char* Seneye::buffer() { return (const char*)&buffer_; }
+const unsigned char* Seneye::buffer() { return (const unsigned char*)&buffer_; }
 
 bool Seneye::EnterInteractiveMode() {
   memset(&buffer_, 0x00, 65);
-  strcpy(&buffer_[1], "HELLOSUD");
+  strcpy((char*)&buffer_[1], "HELLOSUD");
   return device_->Write(buffer_);
 }
 
 bool Seneye::LeaveInteractiveMode() {
   memset(&buffer_, 0x00, 65);
-  strcpy(&buffer_[1], "BYESUD");
+  strcpy((char*)&buffer_[1], "BYESUD");
   return device_->Write(buffer_);
 }
 
